@@ -1,6 +1,6 @@
 
 $(document).ready(function(){
-  var listOfAccounts = ["freecodecamp", "avoidingthepuddle", "bighead033", "brunofin", "ESL_SC2", "OgamingSC2", "cretetion", "freecodecamp", "storbeck", "habathcx", "RobotCaleb", "noobs2ninjas"];
+  var listOfAccounts = ["freecodecamp", "avoidingthepuddle", "bighead033", "brunofin", "ESL_SC2", "OgamingSC2", "cretetion", "freecodecamp", "storbeck", "habathcx", "RobotCaleb", "noobs2ninjas", "teamsp00ky"];
 
   // Used to get twitch information for each endpoint
   function getTwitchEndPoint(account){
@@ -16,8 +16,8 @@ $(document).ready(function(){
           var status = "Offline";
           addToTable(account, streaming, status);
         } else {
-          var status = json.stream.stream_type; // will show Live
-          var descriptionOfContent = json.stream.game; // will show what's showing
+          var status = json.stream.stream_type;
+          var descriptionOfContent = json.stream.game;
           var linkToChannel = json.stream.channel.url;
           var logo = json.stream.channel.logo;
           console.log(linkToChannel);
@@ -35,11 +35,12 @@ $(document).ready(function(){
     }
   }
 
+  // adds information to the table where applicable
   function addToTable(streamer, streamTitle, isLive, linkToIsLive, logo){
     if (isLive == 'live'){
       $(".stream-and-status tr:last").after('<tr><td class="streamer-logo"><img src="'+logo+ '" alt="'+ streamTitle +'"></td><td class="streamer-name">' + streamer + '</td><td class="stream-title">' + streamTitle + '</td><td class="is-live"><a href="'+ linkToIsLive + '"target=_>' + isLive + "</a></td></tr>");
     } else {
-      $(".stream-and-status tr:last").after('<tr><td></td><td class="streamer-name">' + streamer + '</td><td class="stream-title">' + streamTitle + '</td><td class="is-live">' + isLive + "</td></tr>")
+      $(".stream-and-status tr:last").after('<tr><td  class="streamer-logo"></td><td class="streamer-name">' + streamer + '</td><td class="stream-title">' + streamTitle + '</td><td class="is-live">' + isLive + "</td></tr>")
     }
   }
 
