@@ -20,7 +20,6 @@ $(document).ready(function(){
           var descriptionOfContent = json.stream.game;
           var linkToChannel = json.stream.channel.url;
           var logo = json.stream.channel.logo;
-          console.log(linkToChannel);
           addToTable(account, descriptionOfContent, status, linkToChannel, logo);
         }
       }
