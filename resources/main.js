@@ -19,8 +19,8 @@ $(document).ready(function(){
           var status = json.stream.stream_type;
           var descriptionOfContent = json.stream.game;
           var linkToChannel = json.stream.channel.url;
-          var logo = json.stream.channel.logo;
-          addToTable(account, descriptionOfContent, status, linkToChannel, logo);
+          // var logo = json.stream.channel.logo;
+          addToTable(account, descriptionOfContent, status, linkToChannel /*,logo*/);
         }
       }
     });
@@ -37,9 +37,9 @@ $(document).ready(function(){
   // adds information to the table where applicable
   function addToTable(streamer, streamTitle, isLive, linkToIsLive, logo){
     if (isLive == 'live'){
-      $(".stream-and-status tr:last").after('<tr><td class="streamer-logo"><img src="'+logo+ '" alt="'+ streamTitle +'"></td><td class="streamer-name">' + streamer + '</td><td class="stream-title">' + streamTitle + '</td><td class="is-live"><a href="'+ linkToIsLive + '"target=_>' + isLive + "</a></td></tr>");
+      $(".stream-and-status tr:last").after('<tr><td class="streamer-name">' + streamer + '</td><td class="stream-title">' + streamTitle + '</td><td class="is-live"><a href="'+ linkToIsLive + '"target=_>' + isLive + "</a></td></tr>");
     } else {
-      $(".stream-and-status tr:last").after('<tr><td  class="streamer-logo"></td><td class="streamer-name">' + streamer + '</td><td class="stream-title">' + streamTitle + '</td><td class="is-live">' + isLive + "</td></tr>")
+      $(".stream-and-status tr:last").after('<tr><td class="streamer-name">' + streamer + '</td><td class="stream-title">' + streamTitle + '</td><td class="is-live">' + isLive + "</td></tr>")
     }
   }
 
